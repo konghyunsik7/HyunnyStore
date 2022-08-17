@@ -1,6 +1,14 @@
 ﻿@model IEnumerable<Product>
+@section css{
+    <link rel="stylesheet" href="~/css/IndexProduct.css" asp-append-version="true" />
+}
 
-<h2>Products</h2>
+<h2 id="header">Products</h2>
+
+ <div style="display: block">
+     <a href="/Product/InsertProduct/">Create a New Product</a>
+ </div>
+
 <table class="table">
     <tr>
         <th>ID</th>
