@@ -1,36 +1,73 @@
 ﻿@model Product
 @section css{
-    <link rel="stylesheet" href="~/css/ViewProduct.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/css/ViewProduct.css" asp-append-version="true" />
 }
+	@{
+	string imagesrc = "/images/" + @Model.ProductID + ".png";
+	string categoryName = "";
+	switch(Model.CategoryID)
+	{
+		case 1:
+			categoryName = "Shoes";
+			break;
+		case 2:
+			categoryName = "Socks";
+			break;
+		case 3:
+			categoryName = "Pants/Shorts";
+			break;
+		case 4:
+			categoryName = "Shirt/ButtonDown";
+			break;
+		case 5:
+			categoryName = "Jacket/Hoodie";
+			break;
+		case 6:
+			categoryName = "Jewelry";
+			break;
+		default:
+			categoryName = "NA";
+			break;
+			
+	}
+	string formattedPrice = $"${string.Format("{0:n}",Model.Price)}";
+}
+<h3 id="header">@Model.Name</h3>
 
-<h3>@Model.Name Information</h3>
+<div class="card mb-3 mx-auto" style="max-width: 540px;">
+	<div class="row g-0">
+		<div class="col-md-4">
+			@if (Model.ProductID < 10)
+			{
+				<img class="img-fluid" src="@imagesrc" alt="@Model.ProductID .png" width="200" height="200">
+			}
+			else
+			{
+				<img src="/images/Default.PNG" class="img-fluid rounded-start" alt="NOT FOUND">
+			}
 
-<table class="table">
-    <tr>
-        <th>Product ID</th>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Category ID</th>
-        <th>StockLevel</th>
-    </tr>
-    <tr>
-        <td>@Model.ProductID</td>
-        <td>@Model.Name</td>
-        <td>@Model.Price</td>
-        <td>@Model.CategoryID</td>
-        <td>@Model.StockLevel</td>
-    </tr>
+		</div>
+		<div class="col-md-8">
+			<div class="card-body">
+				<h5 class="card-title">@Model.Name</h5>
+				<p class="card-text">@formattedPrice</p>
+				<p class="card-text">@categoryName</p>
+				<p class="card-text">Stock:@Model.StockLevel</p>
+				<p class="card-text"><small class="text-muted">SKU:@Model.ProductID</small></p>
+			</div>
+		</div>
+	</div>
+</div>
 
-</table>
 <div style="display: block">
-    <a href="/Product/UpdateProduct/@Model.ProductID">Update this Product</a>
+	<a href="/Product/UpdateProduct/@Model.ProductID">Update this Product</a>
 </div>
 
 <div style="display: block">
 
-    @using (Html.BeginForm("DeleteProduct", "Product", "Post"))
-    {
-        <input type="hidden" asp-for="ProductID" value="@Model.ProductID" />
-        <input type="submit" onclick="return confirm('Are you sure?')" value="Delete this product" />
-    }
+	@using (Html.BeginForm("DeleteProduct", "Product", "Post"))
+	{
+		<input type="hidden" asp-for="ProductID" value="@Model.ProductID" />
+		<input type="submit" onclick="return confirm('Are you sure?')" value="Delete this product" />
+	}
 </div>
