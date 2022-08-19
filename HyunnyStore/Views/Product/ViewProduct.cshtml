@@ -32,7 +32,8 @@
 	}
 	string formattedPrice = $"${string.Format("{0:n}",Model.Price)}";
 }
-<h3 id="header">@Model.Name</h3>
+
+<h3 id="header" class="text-center">@Model.Name</h3>
 
 <div class="card mb-3 mx-auto" style="max-width: 540px;">
 	<div class="row g-0">
@@ -51,9 +52,17 @@
 			<div class="card-body">
 				<h5 class="card-title">@Model.Name</h5>
 				<p class="card-text">@formattedPrice</p>
-				<p class="card-text">@categoryName</p>
-				<p class="card-text">Stock:@Model.StockLevel</p>
-				<p class="card-text"><small class="text-muted">SKU:@Model.ProductID</small></p>
+				<p class="card-text">Category: @categoryName</p>
+				@if(Model.StockLevel < 5)
+				{
+					<p class="card-text text-danger">Stock: Only @Model.StockLevel Left!</p>
+				}
+				else
+				{
+					<p class="card-text">Stock: @Model.StockLevel</p>
+				}
+					
+				<p class="card-text"><small class="text-muted">SKU: 0000-@Model.ProductID-0000</small></p>
 			</div>
 		</div>
 	</div>
