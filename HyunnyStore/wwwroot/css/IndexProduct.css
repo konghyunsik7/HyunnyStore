@@ -1,7 +1,7 @@
 ﻿#header{
     font-weight:700;
-
-}
-#hero {
     color: aquamarine;
+}
+.body {
+    background-img:url("/images/background.jpg")
 }

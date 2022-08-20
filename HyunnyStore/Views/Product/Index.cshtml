@@ -4,9 +4,7 @@
     <link rel="stylesheet" href="~/css/IndexProduct.css" asp-append-version="true" />
 }
 
- @{ 
-    
-}
+
 
 <h2 id="header">Hyunny's Shop</h2>
 
@@ -16,14 +14,43 @@
 
 @foreach (var product in Model)
 {
+ string imagesrc = "/images/" + product.ProductID + ".png";
+ string formattedPrice = $"${string.Format("{0:n}",product.Price)}";
+ string categoryName = "";
+ 	switch(product.CategoryID)
+	{
+		case 1:
+			categoryName = "Shoes";
+			break;
+		case 2:
+			categoryName = "Socks";
+			break;
+		case 3:
+			categoryName = "Pants/Shorts";
+			break;
+		case 4:
+			categoryName = "Shirt/ButtonDown";
+			break;
+		case 5:
+			categoryName = "Jacket/Hoodie";
+			break;
+		case 6:
+			categoryName = "Jewelry";
+			break;
+		default:
+			categoryName = "NA";
+			break;
+			
+	}
+     
 <div id="ProductCard"  class="card" style="width: 18rem;">
-  <img class="card-img-top" src="~/images/1.PNG" alt="Card image cap">
+  <img class="card-img-top" src= @imagesrc alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">@product.Name</h5>
+    <h5 class="card-title"><a href=/Product/ViewProduct/@product.ProductID>@product.Name</a></h5>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">Price: @product.Price</li>
-    <li class="list-group-item">Category: @product.CategoryID</li>
+    <li class="list-group-item">Price: @formattedPrice</li>
+    <li class="list-group-item">Category: @categoryName</li>
     <li class="list-group-item"> Stock: @product.StockLevel</li>
   </ul>
   <div class="card-body">
@@ -32,4 +59,5 @@
   </div>
 </div>
 
+    
 }

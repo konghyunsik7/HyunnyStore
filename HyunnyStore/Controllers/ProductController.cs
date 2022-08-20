@@ -11,10 +11,15 @@ namespace HyunnyStore.Controllers
     public class ProductController : Controller
     {
         private readonly IProductRepository repo;
-        public ProductController(IProductRepository repo)
+ 
+        private readonly IWebHostEnvironment _hostEnvironment;
+
+        public ProductController(IProductRepository repo, IWebHostEnvironment hostEnvironment)
         {
             this.repo = repo;
+            this._hostEnvironment = hostEnvironment;
         }
+
         public IActionResult Index()
         {
             var products = repo.GetAllProducts();
@@ -53,10 +58,19 @@ namespace HyunnyStore.Controllers
             repo.InsertProduct(productToInsert);
             return RedirectToAction("Index");
         }
-        public IActionResult DeleteProduct(Product product)
+ 
+        public IActionResult DeleteProduct(Product product) // DeleteProduct
         {
+
             repo.DeleteProduct(product);
+            var relativePath = "/images/" + product.ProductID + ".png";
+            string wwwRootPath = _hostEnvironment.WebRootPath;
+            var absolutePath = wwwRootPath + relativePath;
+            if (System.IO.File.Exists(absolutePath))
+            {
+                System.IO.File.Delete(absolutePath);
+            }
             return RedirectToAction("Index");
         }
+        }
     }
-}
