@@ -2,8 +2,10 @@
 @section css{
 	<link rel="stylesheet" href="~/css/ViewProduct.css" asp-append-version="true" />
 }
+
+
 	@{
-	string imagesrc = "/images/" + @Model.ProductID + ".png";
+	string imagesrc = "/images/" + Model.ProductID  +".PNG";
 	string categoryName = "";
 	switch(Model.CategoryID)
 	{
@@ -32,13 +34,14 @@
 	}
 	string formattedPrice = $"${string.Format("{0:n}",Model.Price)}";
 }
+<body id="body">
 
 <h3 id="header" class="text-center">@Model.Name</h3>
 
 <div class="card mb-3 mx-auto" style="max-width: 540px;">
 	<div class="row g-0">
 		<div class="col-md-4">
-			@if (Model.ProductID < 10)
+			@if (Model.ProductID < 20)
 			{
 				<img class="img-fluid" src="@imagesrc" alt="@Model.ProductID .png" width="200" height="200">
 			}
@@ -68,8 +71,9 @@
 	</div>
 </div>
 
+
 <div style="display: block">
-	<a href="/Product/UpdateProduct/@Model.ProductID">Update this Product</a>
+	<a class="btn btn-warning" href="/Product/UpdateProduct/@Model.ProductID">Update this Product</a>
 </div>
 
 <div style="display: block">
@@ -77,6 +81,7 @@
 	@using (Html.BeginForm("DeleteProduct", "Product", "Post"))
 	{
 		<input type="hidden" asp-for="ProductID" value="@Model.ProductID" />
-		<input type="submit" onclick="return confirm('Are you sure?')" value="Delete this product" />
+		<input class="btn btn-danger" type="submit" onclick="return confirm('Are you sure?')" value="Delete this product" />
 	}
 </div>
+</body>

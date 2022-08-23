@@ -2,6 +2,15 @@
     font-weight:700;
     color: aquamarine;
 }
-.body {
-    background-img:url("/images/background.jpg")
+
+#body {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+
+#thecard {
+    margin: 2rem;
+    display: inline-grid;
 }
