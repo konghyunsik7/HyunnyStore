@@ -72,5 +72,10 @@ namespace HyunnyStore.Controllers
             }
             return RedirectToAction("Index");
         }
+        public IActionResult ProductSearch(string SearchProduct)
+        {
+            var filteredProducts = repo.GetSearchedProducts(SearchProduct);
+            return View(filteredProducts);
         }
+    }
     }

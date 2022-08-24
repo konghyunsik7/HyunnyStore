@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Product>  // represents the data model that we will eventually pass to our View 
+
+<h2>Products</h2>  @*header information*@
+
+ <div style="display: block">
+     <a href="/Product/InsertProduct/">Create a New Product</a>
+ </div>
+
+@foreach (var product in Model)
+{
+ string imagesrc = "/images/" + product.ProductID + ".png";
+ string formattedPrice = $"${string.Format("{0:n}",product.Price)}";
+ string categoryName = "";
+ 	switch(product.CategoryID)
+	{
+		case 1:
+			categoryName = "Shoes";
+			break;
+		case 2:
+			categoryName = "Socks";
+			break;
+		case 3:
+			categoryName = "Pants/Shorts";
+			break;
+		case 4:
+			categoryName = "Shirt/ButtonDown";
+			break;
+		case 5:
+			categoryName = "Jacket/Hoodie";
+			break;
+		case 6:
+			categoryName = "Jewelry";
+			break;
+		default:
+			categoryName = "NA";
+			break;
+			
+	}
+<div id="thecard">
+<div class="card d-flex justify-content-center" style="width: 18rem; align-items: center;">
+  <img class="card-img-top zoom" src= @imagesrc alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><a href=/Product/ViewProduct/@product.ProductID>@product.Name</a></h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Price: @formattedPrice</li>
+    <li class="list-group-item">Category: @categoryName</li>
+    <li class="list-group-item"> Stock: @product.StockLevel</li>
+  </ul>
+  <div class="card-body">
+    <a href=/Product/ViewProduct/@product.ProductID>@product.ProductID</a>  
+  </div>
+</div>
+</div>
+}

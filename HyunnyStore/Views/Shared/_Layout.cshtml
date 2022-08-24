@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>@ViewData["Title"] - HyunnyStore</title>
     @RenderSection("css", false)
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -13,7 +14,8 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"> HyunnyStore</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img class="img-fluid " src="/images/Logo.jpg" alt="" width="50" height="50"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -26,10 +28,14 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Products</a>
                         </li>
-                        <break></break>
-                        <li class="nav-item">
-                            <input class="" type="text" placeholder="Search..">
-                        </li>
+                        <form class="form-inline my-2 my-lg-0">
+                           <div class="input-group mb-2 mr-sm-2">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Enter Item To Search" aria-label="Search" style="font-size:17px" name="SearchProduct">
+                            <button class="btn btn-secondary my-2 my-sm-0" type="submit" id="button" asp-action="ProductSearch" asp-controller="Product">Search</button>
+                           </div>
+                        </form>
+                       
+                        
                     </ul>
                 </div>
             </div>

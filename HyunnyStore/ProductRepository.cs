@@ -48,5 +48,10 @@ namespace HyunnyStore
         {
             _conn.Execute("DELETE FROM Products WHERE ProductID = @id;", new { id = product.ProductID });
         }
+        //Search Product
+        public IEnumerable<Product> GetSearchedProducts(string SearchProduct)
+        {
+            return _conn.Query<Product>($"SELECT * FROM Products where name LIKE '%{SearchProduct}%';");
+        }
     }
 }

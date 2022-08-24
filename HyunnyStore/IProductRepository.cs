@@ -17,6 +17,8 @@ namespace HyunnyStore
         public Product AssignCategory();
         //Delete Product
         public void DeleteProduct(Product product);
+        //Search Product
+        public IEnumerable<Product> GetSearchedProducts(string SearchProduct);
 
     }
 
