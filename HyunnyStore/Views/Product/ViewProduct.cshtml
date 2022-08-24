@@ -6,9 +6,9 @@
 
 	@{
 
-	string imagesrc = "/images/" + Model.ProductID  +".PNG";
+	string imagesrc = "/images/" + Model.ProductID + ".PNG";
 	string categoryName = "";
-	switch(Model.CategoryID)
+	switch (Model.CategoryID)
 	{
 		case 1:
 			categoryName = "Shoes";
@@ -31,62 +31,57 @@
 		default:
 			categoryName = "NA";
 			break;
-			
+
 	}
-	string formattedPrice = $"${string.Format("{0:n}",Model.Price)}";
+	string formattedPrice = $"${string.Format("{0:n}", Model.Price)}";
 }
-<body id="body">
+<body id="body1" style="background-image:url(/images/NYC.jpg);">
 
 
-<h3 id="header" class="text-center">@Model.Name</h3>
+	<h3 id="header" class="text-center">@Model.Name</h3>
 
-<div class="card mb-3 mx-auto" style="max-width: 540px;">
-	<div class="row g-0">
-		<div class="col-md-4">
-			@if (Model.ProductID < 50)
-			{
-				<img class="img-fluid zoom" src="@imagesrc" alt="@Model.ProductID .png" width="300" height="300">
-			}
-			else
-			{
-				<img src="/images/Default.PNG" class="img-fluid rounded-start" alt="NOT FOUND">
-			}
-
-		</div>
-		<div class="col-md-8">
-			<div class="card-body">
-				<h5 class="card-title">@Model.Name</h5>
-				<p class="card-text">@formattedPrice</p>
-				<p class="card-text">Category: @categoryName</p>
-				@if(Model.StockLevel < 5)
+	<div class="card mb-3 mx-auto" style="max-width: 540px;">
+		<div class="row g-0">
+			<div class="col-md-4">
+				@if (Model.ProductID < 50)
 				{
-					<p class="card-text text-danger">Stock: Only @Model.StockLevel Left!</p>
+					<img class="img-fluid zoom" src="@imagesrc" alt="@Model.ProductID .png" width="300" height="300">
 				}
 				else
 				{
-					<p class="card-text">Stock: @Model.StockLevel</p>
+					<img src="/images/Default.PNG" class="img-fluid rounded-start" alt="NOT FOUND">
 				}
-					
-				<p class="card-text"><small class="text-muted">SKU: 0000-@Model.ProductID-0000</small></p>
+
+			</div>
+			<div class="col-md-8">
+				<div class="card-body">
+					<h5 class="card-title">@Model.Name</h5>
+					<p class="card-text">@formattedPrice</p>
+					<p class="card-text">Category: @categoryName</p>
+					@if (Model.StockLevel < 5)
+					{
+						<p class="card-text text-danger">Stock: Only @Model.StockLevel Left!</p>
+					}
+					else
+					{
+						<p class="card-text">Stock: @Model.StockLevel</p>
+					}
+
+					<p class="card-text"><small class="text-muted">SKU: 0000-@Model.ProductID-0000</small></p>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
+	<div style="display: block">
+		<a class="btn btn-warning" href="/Product/UpdateProduct/@Model.ProductID">Update this Product</a>
+	</div>
+	<br />
+	<div style="display: block">
 
-
-<div style="display: block">
-	<a class="btn btn-warning" href="/Product/UpdateProduct/@Model.ProductID">Update this Product</a>
-</div>
-<br/>
-<div style="display: block">
-
-	@using (Html.BeginForm("DeleteProduct", "Product", "Post"))
-	{
-		<input type="hidden" asp-for="ProductID" value="@Model.ProductID" />
-		<input class="btn btn-danger" type="submit" onclick="return confirm('Are you sure?')" value="Delete this product" />
-	}
-</div>
-
-
-
+		@using (Html.BeginForm("DeleteProduct", "Product", "Post"))
+		{
+			<input type="hidden" asp-for="ProductID" value="@Model.ProductID" />
+			<input class="btn btn-danger" type="submit" onclick="return confirm('Are you sure?')" value="Delete this product" />
+		}
+	</div>
 </body>

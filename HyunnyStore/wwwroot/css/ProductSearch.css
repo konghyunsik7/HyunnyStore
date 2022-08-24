@@ -1,10 +1,10 @@
-﻿#header1{
-    font-weight:700;
+﻿#header1 {
+    font-weight: 700;
     font-size: 50px;
     color: aquamarine;
 }
 
-#audio{
+#audio {
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -13,7 +13,6 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    
 }
 
 #thecard {
@@ -28,7 +27,6 @@
     margin: 0 auto;
 }
 
-.zoom:hover {
+    .zoom:hover {
         transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-}
-
+    }
