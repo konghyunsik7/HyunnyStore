@@ -40,7 +40,7 @@
 
 	<h3 id="header" class="text-center">@Model.Name</h3>
 
-	<div class="card mb-3 mx-auto" style="max-width: 540px;">
+	<div class="card mb-3 mx-auto" style="max-width: 900px;">
 		<div class="row g-0">
 			<div class="col-md-4">
 				@if (Model.ProductID < 50)
@@ -55,7 +55,7 @@
 			</div>
 			<div class="col-md-8">
 				<div class="card-body">
-					<h5 class="card-title">@Model.Name</h5>
+					<h5 class="card-title" ;">@Model.Name</h5>
 					<p class="card-text">@formattedPrice</p>
 					<p class="card-text">Category: @categoryName</p>
 					@if (Model.StockLevel < 5)
@@ -68,15 +68,23 @@
 					}
 
 					<p class="card-text"><small class="text-muted">SKU: 0000-@Model.ProductID-0000</small></p>
+					<p>
+					<button type="button" class="btn btn-lg btn-primary" onclick="" href="">
+						Add To Cart
+						<svg xmlns="http://www.w3.org/2000/svg" width="30" height="24" fill="currentColor" class="bi bi-bag-heart" style="margin-bottom:7px;" viewBox="0 0 16 16">
+							<path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5Zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0ZM14 14V5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1ZM8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z" />
+						</svg>
+					</button>
+					</p>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div style="display: block">
+	<div style="display: block;margin-left: 515px;">
 		<a class="btn btn-warning" href="/Product/UpdateProduct/@Model.ProductID">Update this Product</a>
 	</div>
 	<br />
-	<div style="display: block">
+	<div style="display: block;margin-left: 515px;" >
 
 		@using (Html.BeginForm("DeleteProduct", "Product", "Post"))
 		{

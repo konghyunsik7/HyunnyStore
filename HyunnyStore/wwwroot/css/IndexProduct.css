@@ -1,12 +1,14 @@
-﻿#header1{
-    font-weight:700;
+﻿#header1 {
+    font-weight: 700;
     font-size: 50px;
     color: aquamarine;
+    margin-left: 85px;
 }
 
-#audio{
+#audio {
     margin-top: 20px;
     margin-bottom: 20px;
+    margin-left: 85px;
 }
 
 #body {
@@ -15,10 +17,11 @@
     background-repeat: no-repeat;
     
 }
-
+ 
 #thecard {
     margin: 2rem;
     display: inline-grid;
+    margin-left:85px;
 }
 
 .zoom {

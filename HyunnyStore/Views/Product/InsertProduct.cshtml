@@ -1,6 +1,10 @@
 ﻿@model Product
 
+
+
+<body id="body" style="background-image:url(/images/background3.jpg)">
 <h2>Create a New Product</h2>
+
 
 @using (Html.BeginForm("InsertProductToDatabase", "Product", "Post"))
 {
@@ -22,5 +26,7 @@
         </select>
     </div>
     
-    <input type="submit" value="Create Product" class="btn btn-primary" />
+    <input type="submit" value="Create Product" class="btn btn-primary" style="margin-top:15px"/>
 }
+
+</body>

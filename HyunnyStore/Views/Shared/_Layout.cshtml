@@ -29,17 +29,32 @@
 						<li class="nav-item">
 							<a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Products</a>
 						</li>
-						<form class="form-inline my-2 my-lg-0">
+					</ul>
+
+					@*SEARCHBAR*@
+						<form class="form-inline my-2 my-lg" style="margin-right:5px;">
 							<div class="input-group mb-2 mr-sm-2 ">
-								<input class="form-control mr-sm-2" type="search" placeholder="Enter Item To Search" aria-label="Search" style="font-size:17px" name="SearchProduct">
-								<button class="btn btn-secondary my-2 my-sm-0" type="submit" id="button" asp-action="ProductSearch" asp-controller="Product">Search</button>
+								<input class="form-control mr-sm-2" type="search" placeholder="Enter Item To Search" aria-label="Search" style="font-size:17px;justify-content: right;" name="SearchProduct">
+								<button class="btn btn-primary my-2 my-sm-0" type="submit" id="button" asp-action="ProductSearch" asp-controller="Product">Search</button>
 							</div>
 						</form>
 
-
-					</ul>
+					@*LOGIN DROPDOWN*@
+					<div class="dropdown">
+						<button class="btn btn-lg btn-primary dropdown-toggle" style="justify-content: right;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<svg xmlns="http://www.w3.org/2000/svg" width="30" height="24" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+								<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+								<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+							</svg>
+						</button>
+						@*SHOPPING CART BUTTON*@
+						<button type="button" class="btn btn-lg btn-primary dropdown-toggle" onclick="" href="" style="justify-content: right;">
+							<svg xmlns="http://www.w3.org/2000/svg" width="30" height="24" fill="currentColor" class="bi bi-bag-heart" viewBox="0 0 16 16">
+								<path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5Zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0ZM14 14V5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1ZM8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z" />
+							</svg>
+						</button>
+					</div>
 				</div>
-			</div>
 		</nav>
 	</header>
 	<div class="container">
@@ -57,5 +72,5 @@
 	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="~/js/site.js" asp-append-version="true"></script>
 	@await RenderSectionAsync("Scripts", required: false)
-</bodym>
+	</bodym>
 </html>
