@@ -45,9 +45,9 @@ body {
     background-position: center;
     background-repeat: no-repeat;
 }
-#header{
-    font-weight:700;
+#header {
+    font-weight: 700;
     justify-items: center;
-    color:ghostwhite;
-    margin-top:60px
+    color: ghostwhite;
+    margin-top: 60px;
 }

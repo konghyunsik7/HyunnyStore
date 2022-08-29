@@ -15,7 +15,7 @@
 		</h1>
 
 		<audio controls id="audio">
-			<source src="~/audio/Talking to the Moon.mp3" type="audio/mpeg">
+			<source src="~/audio/all of me.mp3" type="audio/mpeg">
 
 			Your browser does not support the audio element.
 		</audio>
@@ -50,12 +50,15 @@
 			case 6:
 				categoryName = "Jewelry";
 				break;
+			case 7:
+				categoryName = "ETC";
+				break;	
 			default:
 				categoryName = "NA";
 				break;
 
 		}
-		<div id="thecard">
+		<div id="thecard" style="text-align:center;">
 			<div class="card d-flex justify-content-center rounded" style="width: 18rem; align-items: center;">
 				<img class="card-img-top zoom" src=@imagesrc alt="Card image cap">
 				<div class="card-body">
@@ -68,7 +71,7 @@
 				</ul>
 				<div class="card-body">
 					@*ADD TO CART*@
-					<button type="button" class="btn btn-primary" onclick="" href="">
+					<button type="button" class="btn btn-primary" onclick="addtocart()" href="">
 						Add To Cart
 						<svg xmlns="http://www.w3.org/2000/svg" width="30" height="24" fill="currentColor" class="bi bi-bag-heart" style="margin-bottom:7px;" viewBox="0 0 16 16">
 							<path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5Zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0ZM14 14V5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1ZM8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z" />

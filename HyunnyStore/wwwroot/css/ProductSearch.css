@@ -2,11 +2,13 @@
     font-weight: 700;
     font-size: 50px;
     color: aquamarine;
+    margin-left: 85px;
 }
 
 #audio {
     margin-top: 20px;
     margin-bottom: 20px;
+    margin-left: 85px;
 }
 
 #body {
@@ -18,6 +20,7 @@
 #thecard {
     margin: 2rem;
     display: inline-grid;
+    margin-left: 85px;
 }
 
 .zoom {
