@@ -1,15 +1,5 @@
 <h1>:shopping_cart: Personalized Shopping Website Using C#</h1>
 
-Home Page:
-![Homepage](https://user-images.githubusercontent.com/74017545/187297590-590a84a2-72d2-4009-9346-289fde4ec340.PNG)
-
-Products Page:
-
-
-Individual Product Page:
-
-
-
 
 Features 📋 
 <ul>:white_check_mark: MySQL</ul>
@@ -24,3 +14,16 @@ Features 📋
     <ul>Gives web pages interactive elements that engage a user</ul>
 <ul>:white_check_mark: C#</ul>
   <ul>Main coding language used to communicate with the database and user</ul>
+  
+  Home Page:
+![Homepage](https://user-images.githubusercontent.com/74017545/187297590-590a84a2-72d2-4009-9346-289fde4ec340.PNG)
+
+Products Page:
+![product](https://user-images.githubusercontent.com/74017545/187298266-f8b8aa6a-4748-4871-9600-1394dfe0543e.PNG)
+
+
+Individual Product Page:
+![viewproduct](https://user-images.githubusercontent.com/74017545/187298267-f965d4c7-daea-45b5-9663-1cb7e194e08e.PNG)
+
+
+
