@@ -1,4 +1,16 @@
 <h1>:shopping_cart: Personalized Shopping Website Using C#</h1>
+
+Home Page:
+![Homepage](https://user-images.githubusercontent.com/74017545/187297590-590a84a2-72d2-4009-9346-289fde4ec340.PNG)
+
+Products Page:
+
+
+Individual Product Page:
+
+
+
+
 Features 📋 
 <ul>:white_check_mark: MySQL</ul>
  <ul>(database) To add, access, and process data</ul>
